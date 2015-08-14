@@ -45,7 +45,7 @@ if [ "$user" != "" ] && [ "$password" != "" ] && [ "$db" != "" ] && [ $host != "
     mysql -u "$rootUser" "-p$rootPassword" -e "CREATE USER '$user'@'$host' IDENTIFIED BY '$password';"
     mysql -u "$rootUser" "-p$rootPassword" -e "GRANT ALL PRIVILEGES ON $db.* TO $user@$host;"
 
-    echo "\nDB & User Created..."
+    echo "DB & User Created..."
 else
     echo "Sorry couldn't create DB & User, one of the option is blank"
 fi
