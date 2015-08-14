@@ -41,9 +41,9 @@ if [ "$password" == "" ] ; then
 fi
 
 if [ "$user" != "" ] && [ "$password" != "" ] && [ "$db" != "" ] && [ $host != "" ] ; then
-    `mysql -u $rootUser -p'$rootPassword' -e "create database $db"`
-    `mysql -u $rootUser -p'$rootPassword' -e CREATE USER '$user'@'$host' IDENTIFIED BY '$password';`
-    `mysql -u $rootUser -p'$rootPassword' -e GRANT ALL PRIVILEGES ON $db.* TO $user@$host;`
+    mysql -u "$rootUser" "-p$rootPassword" -e "create database $db"
+    mysql -u "$rootUser" "-p$rootPassword" -e "CREATE USER '$user'@'$host' IDENTIFIED BY '$password';"
+    mysql -u "$rootUser" "-p$rootPassword" -e "GRANT ALL PRIVILEGES ON $db.* TO $user@$host;"
 
     echo "\nDB & User Created..."
 else
